@@ -11,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -43,11 +44,15 @@ public class BaseClass {
 		reports.attachReporter(htmlreport);
 
 	}
-
+	
+	@Parameters({"browser","URLTobeTested"})
 	@BeforeClass
-	public void setup() {
+	public void setup(String browser, String URLTobeTested) {
 		Reporter.log("Browser and application is about to start",true);
-		driver = BrowserFactory.startApplication(driver, config.getBrowser(), config.getURL());
+		//While reading from config file
+		//driver = BrowserFactory.startApplication(driver, config.getBrowser(), config.getURL());
+		//Passing parameters from maven
+		driver = BrowserFactory.startApplication(driver, browser, URLTobeTested);
 		System.out.println(driver.getTitle());
 		Reporter.log("Browser and application is up and running",true);
 	}
