@@ -9,6 +9,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class BrowserFactory {
 	
+	//loads Browser from config file
 	@SuppressWarnings("deprecation")
 	public static WebDriver startApplication(WebDriver driver, String browsername, String appURL) {
 		
