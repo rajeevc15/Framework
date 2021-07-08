@@ -14,8 +14,8 @@ public class LoginTest extends BaseClass {
 		
 	
 	
-	@Test
-	public void loginApp() {
+	@Test(priority=1)
+	public void loginApp() throws InterruptedException {
 		
 		logger=reports.createTest("Loging to Timesheet");
 				
@@ -26,9 +26,11 @@ public class LoginTest extends BaseClass {
 		lpage.submitlogin(excel.getStringData("Login", 0, 0), excel.getStringData("Login", 0, 1));
 		logger.pass("Login Success");
 		
+		Thread.sleep(8000);
+		
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void clickTimeCardUser() {
 		
 		logger=reports.createTest("Timecarduser");
