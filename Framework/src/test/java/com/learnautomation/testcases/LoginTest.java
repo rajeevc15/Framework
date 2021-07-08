@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import com.learnautomation.pages.BaseClass;
 import com.learnautomation.pages.LoginPage;
+import com.learnautomation.pages.TimecardPage;
 
 
 public class LoginTest extends BaseClass {
@@ -25,6 +26,15 @@ public class LoginTest extends BaseClass {
 		lpage.submitlogin(excel.getStringData("Login", 0, 0), excel.getStringData("Login", 0, 1));
 		logger.pass("Login Success");
 		
+	}
+	
+	@Test
+	public void clickTimeCardUser() {
+		
+		logger=reports.createTest("Timecarduser");
+		TimecardPage tpage=PageFactory.initElements(driver, TimecardPage.class);
+		tpage.clickTimeCardUser();
+		logger.pass("Timecarduser successful ");
 	}
 	
 	
