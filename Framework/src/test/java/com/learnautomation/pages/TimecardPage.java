@@ -7,6 +7,8 @@ import org.openqa.selenium.support.How;
 
 public class TimecardPage {
 	
+	//Timecard page
+	
 	WebDriver driver;
 	
 	public TimecardPage(WebDriver driver) {
