@@ -15,7 +15,7 @@ public class TimecardPage {
 		this.driver=driver;
 	}
 	
-	@FindBy(how=How.CLASS_NAME,using="textdivresp")
+	@FindBy(how=How.XPATH,using="//class[contains(text(),'JCP Timecard User')]")
 	WebElement timecarduser;
 	
 	public void clickTimeCardUser() {
