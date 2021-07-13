@@ -1,11 +1,14 @@
 package com.learnautomation.utility;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserFactory {
 	
@@ -14,8 +17,15 @@ public class BrowserFactory {
 	public static WebDriver startApplication(WebDriver driver, String browsername, String appURL) {
 		
 		if (browsername.equalsIgnoreCase("chrome")) {
+			DesiredCapabilities caps=new DesiredCapabilities();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("test-type");
+			options.addArguments("disable-popup-blocking");
+			//options.setExperimentalOption("excludeSwitches",Arrays.asList("disable-popup-blocking"));
+			caps.setCapability(ChromeOptions.CAPABILITY, options);
 			System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver.exe");
-			driver=new ChromeDriver();
+			driver=new ChromeDriver(caps);
+			
 			
 		}
 		else if(browsername.equalsIgnoreCase("firefox")){

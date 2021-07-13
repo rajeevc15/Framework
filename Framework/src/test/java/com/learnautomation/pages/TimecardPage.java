@@ -23,11 +23,17 @@ public class TimecardPage {
 	
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'JCP Timecard User')]")
 	WebElement timecarduser;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Create Timecard')]")
+	WebElement createTimecard;
+	
+	
 	
 	public void clickTimeCardUser() {
 		WebDriverWait wait=new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'JCP Timecard User')]")));
 		timecarduser.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Create Timecard')]")));
+		createTimecard.click();
 	}
 
 }
